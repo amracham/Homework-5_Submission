@@ -1,0 +1,13 @@
+schema: "classroom50/repo-config/v1"
+classroom: "frontend-development-inf651"
+assignment: "homework-5-how-react-work"
+secret: "9bc63ka9"
+owner:
+  username: "amracham"
+  id: 196172067
+  accepted_at: "2026-10-04T03:41:29Z"
+source:
+  owner: "AUPP-CS"
+  owner_id: 98384505
+  repo: "inf651-temp-hw5-react-work"
+  branch: "main"

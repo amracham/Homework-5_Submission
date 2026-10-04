@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Resume Builder - Homework</title>
+    
+    <!-- React CDN Links -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <style>
+        /* Basic styling - students can modify this */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: white;
+        }
+        
+        .resume-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #444;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #ff6b6b;
+            border: 2px dashed #ff6b6b;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        
+        .experience {
+            margin-bottom: 25px;
+            border: 2px solid #555;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .experience-header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 15px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-bottom: 2px dashed #6bb6ff;
+        }
+        
+        .experience-body {
+            padding: 20px;
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            border: 2px dashed #4caf50;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root">
+        <!-- Your React app will render here -->
+        <p>Please implement your React components...</p>
+    </div>
+
+    <script>
+        // TODO: Create your React components here
+        
+        // Example of how to start:
+        // 1. Create a Title component
+        // 2. Create ExperienceHeader component  
+        // 3. Create ExperienceBody component
+        // 4. Create Experience component
+        // 5. Create main App component
+        // 6. Render the App
+        
+        // Remember: Use React.createElement() instead of JSX!
+        
+        // Start your implementation here:
+
+        //1. Create a Title component
+        function Title(props) {
+            return React.createElement(
+                'h1',              // HTML element type
+                { className: 'title' },  // Props/attributes
+                props.text         // Children (text content)
+            );
+        }
+        // 2. Create ExperienceHeader component  
+        function ExperienceHeader(props) {
+    return React.createElement(
+        'div',
+        { className: 'experience-header' },
+        props.title
+    );
+}
+        // 3. Create ExperienceBody component
+        function ExperienceBody(props) {
+    return React.createElement(
+        'div',
+        { className: 'experience-body' },
+        props.description
+    );
+}
+        // 4. Create Experience component
+        function Experience(props) {
+    return React.createElement(
+        'div',
+        { className: 'experience' },
+        React.createElement(ExperienceHeader, { title: props.title }),
+        React.createElement(ExperienceBody, { description: props.description })
+    );
+}    
+        //the above code are to create the components, the actual conent is tobe input below in the main app
+        
+        // 5. Create main App component
+        function App() {
+    const resumeData = {
+
+        // Display title
+        title: "My Resume",
+        
+        // Experience block
+        experiences: [
+            {
+                title: "2025-Present, IT club leader",
+                description: "An IT Club Leader oversees the planning and execution of technology-focused activities, manages team members, and promotes learning initiatives. They coordinate workshops, projects, and events to enhance technical skills, encourage collaboration, and foster innovation within the group."
+            },
+            {
+                title: "2024-2025, Coffee Barista",
+                description: "A coffee barista prepares and serves coffee and other beverages, operates coffee-making equipment, maintains cleanliness, and provides customer service with knowledge of different coffee types and brewing techniques."
+            }
+        ]
+    };
+    
+    return React.createElement(
+        'div',
+        { className: 'resume-container' },
+        React.createElement(Title, { text: resumeData.title }),
+        ...resumeData.experiences.map((exp, index) => 
+            React.createElement(Experience, {
+                key: index,
+                title: exp.title,
+                description: exp.description
+            })
+        )
+    );
+}
+        // 6. Render the App
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(App));
+
+        
+    </script>
+</body>
+</html>

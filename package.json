@@ -1,0 +1,49 @@
+{
+  "name": "react-resume-homework-tests",
+  "version": "1.0.0",
+  "description": "Jest tests for React Resume Builder homework",
+  "main": "index.html",
+  "scripts": {
+    "test": "jest tests/ --verbose",
+    "test:components": "jest tests/components/ --verbose",
+    "test:technical": "jest tests/technical/ --verbose",
+    "test:title": "jest tests/components/title.test.js --verbose",
+    "test:header": "jest tests/components/experienceHeader.test.js --verbose",
+    "test:body": "jest tests/components/experienceBody.test.js --verbose",
+    "test:experience": "jest tests/components/experience.test.js --verbose",
+    "test:app": "jest tests/components/app.test.js --verbose",
+    "test:create-element": "jest tests/technical/reactCreateElement.test.js --verbose",
+    "test:no-jsx": "jest tests/technical/noJSX.test.js --verbose"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.5.1",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setupTests.js"],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "tests/**/*.{js,jsx}",
+      "!tests/setupTests.js"
+    ]
+  },
+  "keywords": [
+    "react",
+    "jest",
+    "testing",
+    "homework",
+    "education"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
